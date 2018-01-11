@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Product.destroy_all
+ActiveRecord::Base.connection.execute('ALTER TABLE products AUTO_INCREMENT = 1')
+
+Product.create!(title: 'RB', description: 'LeanRB', price: 12.99, published: true)
+Product.create!(title: 'JQ', description: 'LeanJQ', price: 11.99, published: true)
+Product.create!(title: 'SASS', description: 'LeanCSS', price: 18.99, published: true)

@@ -10,7 +10,7 @@
     %>
     <tr>
       <td><%= i %></td>
-      <td><%= p.title %></td>
+      <td><%= link_to(p.title, product_url(p)) %></td>
       <td><%= p.price %></td>
       <td><%= p.category.try(:title) %></td>
     </tr>

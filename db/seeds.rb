@@ -11,4 +11,6 @@ Product.destroy_all
 Product.create!(title: 'RB', description: 'LeanRB', price: 12.99, published: true)
 Product.create!(title: 'JQ', description: 'LeanJQ', price: 11.99, published: true)
 Product.create!(title: 'SASS', description: 'LeanCSS', price: 18.99, published: true)
-#Product.create!(title: 'TestHTML', description: '<div>This is HTML</div>', price: 11.99, published: true)
+Product.create!(title: 'TestHTML', description: '<div>This is HTML</div>', price: 11.99, published: true)
+Product.create!(title: 'RB1', description: 'LeanRB1', price: 12.99, published: true)
+Product.create!(title: 'RB2', description: 'LeanRB2', price: 12.99, published: true)

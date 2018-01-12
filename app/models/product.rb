@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+ extend Enumerize
  belongs_to :category, optional: true
  validates :title, :description, presence: true
  validate :title_is_shorter_than_description
@@ -21,6 +22,8 @@ class Product < ActiveRecord::Base
  #def lower_case_title_2
  #  self.title = title.downcase
  #end
+
+ enumerize :level, in: [:easy, :medium, :hard]
 
  def title_is_shorter_than_description
  	return if title.blank? or description.blank?

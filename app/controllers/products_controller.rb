@@ -13,11 +13,13 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    binding.pry
     return redirect_to products_path if @product.save
     render :new
   end
 
   private
+  # securing information
   def product_params
     params.require(:product).permit(:title, :description, :price, :published, :category_id)
   end

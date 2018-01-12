@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# pry-rails
+gem 'pry-rails'
 # Formtastic gem
 gem 'formtastic', '~> 3.0'
 # Bundle all countries

@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    return redirect_to products_path, notice: 'ss' if @product.save
-      flash.now[:notice] = 'Wrong input.'
-      render :new
+    return redirect_to products_path, notice: 'success' if @product.save
+    flash.now[:notice] = 'Wrong input.'
+    render :new
   end
 
   def edit
@@ -25,8 +25,16 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    return redirect_to products_path if @product.update(product_params)
+    return redirect_to products_path, notice: 'success' if @product.update(product_params)
+    flash.now[:notice] = 'Wrong input.'
     render :new
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    flash[:notice] = 'Delete fail.'
+    flash[:notice] = 'Success' if @product.destroy
+    return redirect_to products_path
   end
 
   private

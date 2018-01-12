@@ -24,6 +24,7 @@ class Product < ActiveRecord::Base
  #end
 
  enumerize :level, in: [:easy, :medium, :hard]
+ enumerize :country, in: ISO3166::Country.all_translated
 
  def title_is_shorter_than_description
  	return if title.blank? or description.blank?

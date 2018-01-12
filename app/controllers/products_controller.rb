@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    binding.pry
-    return redirect_to products_path if @product.save
-    render :new
+    return redirect_to products_path, notice: 'ss' if @product.save
+      flash.now[:notice] = 'Wrong input.'
+      render :new
   end
 
   private

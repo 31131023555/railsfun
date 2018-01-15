@@ -1,25 +1,15 @@
+
+
 <table>
   <tr>
-    <td>STT</td>
     <td>Name</td>
     <td>Price</td>
     <td>Category</td>
     <td></td>
     <td></td>
   </tr>
-    <%
-      @products.each_with_index do |p, i|
-    %>
-    <tr>
-      <td><%= i %></td>
-      <td><%= link_to(p.title, product_url(p)) %></td>
-      <td><%= p.price %></td>
-      <td><%= p.category.try(:title) %></td>
-      <td><%= link_to('Edit', edit_product_path(p)) %></td>
-      <td><%= link_to('Delete', product_path(p), method: :delete,
-                      data: {confirm: 'Are you sure?'}) %></td>
-    </tr>
-    <% end %>
+  .listing
+  <%= render partial: 'product', collection: @products, as: :p %>
 </table>
 
 <button><%= link_to('Add new product', new_product_path) %></button>
